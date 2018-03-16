@@ -1,9 +1,8 @@
-module.exports = {
-    googleClientID:
-        '280508933382-8b2g2fkf3kqpsdvab110uqc583khmtec.apps.googleusercontent.com',
-    googleClientSecret: 'W-UghNg7zt6uZ2sSkoXuTsHQ',
-    mongoURI:
-        'mongodb://abbs-emaily-dev:zgmfx42s@ds215709.mlab.com:15709/emaily-dev-test',
-    cookieKey:
-        'goidsfghsfdoiughfidsohugodfhgoe8e9hsg9hgioerbgidfnidsnfoibfnsoinfdb'
-};
+// keys.js - figure out what set of credentials to use
+if (process.env.NODE_ENV === 'production') {
+    // in production, return prod keys
+    module.exports(require('./prod'));
+} else {
+    // in dev, return dev keys
+    module.exports = require('./dev');
+}
